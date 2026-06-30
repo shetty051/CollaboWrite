@@ -91,7 +91,6 @@ function AuthForm() {
 
     try {
       if (isLogin) {
-        setError("Logging in...");
         const res = await signIn("credentials", {
           redirect: false,
           email,
@@ -102,19 +101,15 @@ function AuthForm() {
           setError(`Login failed: ${res.error}`);
           setLoading(false);
         } else {
-          setError("Fetching recent accounts...");
           await saveRecentAccount();
-          setError("Redirecting...");
           window.location.href = "/home";
         }
       } else {
-        setError("Step 1/4: Creating account...");
         const res = await signUpAction(new FormData(e.target as HTMLFormElement));
         if (res.error) {
           setError(`Signup error: ${res.error}`);
           setLoading(false);
         } else {
-          setError("Step 2/4: Signing in...");
           const signInRes = await signIn("credentials", {
             redirect: false,
             email,
@@ -125,9 +120,7 @@ function AuthForm() {
             setLoading(false);
             return;
           }
-          setError("Step 3/4: Saving account...");
           await saveRecentAccount();
-          setError("Step 4/4: Redirecting...");
           window.location.href = "/onboarding/role";
         }
       }
