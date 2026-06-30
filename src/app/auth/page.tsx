@@ -105,8 +105,7 @@ function AuthForm() {
           setError("Fetching recent accounts...");
           await saveRecentAccount();
           setError("Redirecting...");
-          router.push("/home");
-          router.refresh();
+          window.location.href = "/home";
         }
       } else {
         setError("Step 1/4: Creating account...");
@@ -129,8 +128,7 @@ function AuthForm() {
           setError("Step 3/4: Saving account...");
           await saveRecentAccount();
           setError("Step 4/4: Redirecting...");
-          router.push("/onboarding/role");
-          router.refresh();
+          window.location.href = "/onboarding/role";
         }
       }
     } catch (err: any) {
