@@ -91,6 +91,7 @@ function AuthForm() {
 
     try {
       if (isLogin) {
+        setError("Logging in...");
         const res = await signIn("credentials", {
           redirect: false,
           email,
@@ -98,32 +99,43 @@ function AuthForm() {
         });
 
         if (res?.error) {
-          setError("Invalid email or password");
+          setError(`Login failed: ${res.error}`);
           setLoading(false);
         } else {
+          setError("Fetching recent accounts...");
           await saveRecentAccount();
+          setError("Redirecting...");
           router.push("/home");
           router.refresh();
         }
       } else {
+        setError("Step 1/4: Creating account...");
         const res = await signUpAction(new FormData(e.target as HTMLFormElement));
         if (res.error) {
-          setError(res.error);
+          setError(`Signup error: ${res.error}`);
           setLoading(false);
         } else {
-          await signIn("credentials", {
+          setError("Step 2/4: Signing in...");
+          const signInRes = await signIn("credentials", {
             redirect: false,
             email,
             password,
           });
+          if (signInRes?.error) {
+            setError(`Signin error after signup: ${signInRes.error}`);
+            setLoading(false);
+            return;
+          }
+          setError("Step 3/4: Saving account...");
           await saveRecentAccount();
+          setError("Step 4/4: Redirecting...");
           router.push("/onboarding/role");
           router.refresh();
         }
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setError("A server error occurred. Please try again.");
+      setError(`Fatal error: ${err?.message || String(err)}`);
       setLoading(false);
     }
   };
