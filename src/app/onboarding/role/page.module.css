@@ -1,0 +1,87 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .cardsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.roleButton {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+.roleButton:hover:not(:disabled) {
+  transform: translateY(-4px);
+}
+
+.roleButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.roleCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  border: 2px solid transparent;
+}
+
+.roleButton:hover:not(:disabled) .roleCard {
+  border-color: var(--color-accent-maroon);
+}
+
+.icon {
+  color: var(--color-accent-maroon);
+}
+
+.roleCard h2 {
+  font-size: 1.5rem;
+}
+
+.roleCard p {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}

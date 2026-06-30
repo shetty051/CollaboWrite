@@ -1,0 +1,26 @@
+.placeholder {
+  width: 40px;
+  height: 40px;
+}
+
+.toggleBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.toggleBtn:hover {
+  background-color: var(--color-bg-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}

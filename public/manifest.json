@@ -1,0 +1,21 @@
+{
+  "name": "CollaboWrite",
+  "short_name": "CollaboWrite",
+  "description": "A collaborative storytelling platform.",
+  "start_url": "/home",
+  "display": "standalone",
+  "background_color": "#2d3436",
+  "theme_color": "#2d3436",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

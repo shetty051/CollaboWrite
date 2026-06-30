@@ -1,0 +1,74 @@
+:root {
+  /* Warm Color Palette */
+  --color-bg-primary: #FCFAF8; /* Cream/off-white */
+  --color-bg-secondary: #FFFFFF; /* Pure white for cards */
+  --color-text-primary: #2C2C2C; /* Soft near-black */
+  --color-text-secondary: #595959; /* Soft gray */
+  --color-accent-maroon: #682D35; /* Deep maroon primary accent */
+  --color-accent-maroon-hover: #502128;
+  --color-accent-peach: #F6D8CE; /* Blush/peach secondary accent */
+  --color-border: #E8DFD8; /* Soft warm border */
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 8px 30px rgba(104, 45, 53, 0.08);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-full: 9999px; /* Pill */
+}
+
+[data-theme='dark'] {
+  --color-bg-primary: #1E1A19; /* Deep warm gray/brown */
+  --color-bg-secondary: #2A2422; /* Slightly lighter card background */
+  --color-text-primary: #EAE3DE; /* Warm off-white */
+  --color-text-secondary: #AFA59D; /* Warm mid-gray */
+  --color-accent-maroon: #8A434F; /* Lightened maroon for dark mode contrast */
+  --color-accent-maroon-hover: #A05260;
+  --color-accent-peach: #5C3831; /* Deep rusty peach */
+  --color-border: #3E3532; /* Muted warm border */
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Remove dark mode override to enforce the warm, cozy theme */
+html {
+  height: 100%;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

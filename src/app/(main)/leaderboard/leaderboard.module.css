@@ -1,0 +1,148 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.headerTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerIcon {
+  color: #f59e0b; /* Gold */
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tableCard {
+  overflow: hidden;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th, .table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table th {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table th svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  margin-top: -2px;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.topRow {
+  background-color: rgba(253, 224, 217, 0.2);
+}
+
+.rankCol {
+  text-align: center;
+  font-weight: 700;
+  width: 80px;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+}
+
+.numberCol {
+  text-align: right;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.usernameCol {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.writerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reviewCount {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.ratingScore {
+  background-color: #fffbeb;
+  color: #b45309;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.goldMedal { color: #d97706; }
+.silverMedal { color: #64748b; }
+.bronzeMedal { color: #b45309; }
+
+.loading {
+  text-align: center;
+  padding: 64px;
+  color: var(--color-text-secondary);
+}
+
+.emptyState {
+  padding: 64px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}

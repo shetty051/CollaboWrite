@@ -1,0 +1,112 @@
+.avatarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--color-accent-peach);
+  color: var(--color-accent-maroon);
+  font-weight: 600;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.clickable:hover {
+  opacity: 0.8;
+}
+
+/* Modal / Lightbox Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  backdrop-filter: blur(2px);
+}
+
+.modalContent {
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.largeAvatarWrapper {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  background-color: var(--color-bg-tertiary, #e2e8f0);
+}
+
+.largeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.largeInitials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+@media (max-width: 768px) {
+  .largeAvatarWrapper {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .largeInitials {
+    font-size: 5rem;
+  }
+  
+  .closeBtn {
+    top: -30px;
+    right: 0;
+  }
+}

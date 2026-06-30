@@ -1,0 +1,102 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+}
+
+.formCard {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.genresSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.genresGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.genrePill {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.genrePill:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-accent-maroon);
+}
+
+.genrePill.selected {
+  background-color: var(--color-accent-peach);
+  border-color: var(--color-accent-maroon);
+  color: var(--color-text-primary);
+}
+
+.hiddenCheckbox {
+  display: none;
+}
+
+.submitBtn {
+  margin-top: 8px;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  background: #fdecea;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+}

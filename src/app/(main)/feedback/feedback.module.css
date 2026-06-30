@@ -1,0 +1,147 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  align-items: center;
+}
+
+.headerTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerIcon {
+  color: var(--color-accent-maroon);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.formCard {
+  padding: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.select, .textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+}
+
+.select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-peach);
+  box-shadow: 0 0 0 2px rgba(253, 224, 217, 0.5);
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.starWidget {
+  display: flex;
+  gap: 8px;
+}
+
+.starBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.starBtn:hover {
+  transform: scale(1.1);
+}
+
+.starIconFilled {
+  fill: currentColor;
+  color: #f59e0b;
+}
+
+.starIconEmpty {
+  color: #d1d5db;
+}
+
+.clearRatingBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.submitBtn {
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+.successCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 32px;
+  gap: 16px;
+}
+
+.successIcon {
+  color: #059669;
+  margin-bottom: 8px;
+}
+
+.successCard h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.successCard p {
+  color: var(--color-text-secondary);
+  margin: 0 0 16px 0;
+}

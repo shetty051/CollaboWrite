@@ -1,0 +1,182 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  passwordHash   String
+  role           String?   // "READER" or "WRITER"
+  onboardingStep String    @default("ROLE_SELECTION") // "ROLE_SELECTION", "PROFILE_SETUP", "COMPLETED"
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  profile        Profile?
+  stories        Story[]          @relation("StoryAuthor")
+  coAuthorInvites CoAuthorInvite[]
+  reviews        Review[]
+  comments       Comment[]
+  followers      Follow[]         @relation("UserFollowers")
+  following      Follow[]         @relation("UserFollowing")
+  siteFeedbacks  SiteFeedback[]
+  readHistory    ReadHistory[]
+  notifications  Notification[]
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName  String
+  username  String   @unique
+  age       Int
+  country   String
+
+  // Many-to-many relationship with Genre
+  genres    Genre[]  @relation("ProfileToGenre")
+
+  avatarUrl String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Genre {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  profiles  Profile[] @relation("ProfileToGenre")
+  stories   Story[]   @relation("StoryToGenre")
+}
+
+model Tag {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  stories   Story[]   @relation("StoryToTag")
+}
+
+model Story {
+  id          String   @id @default(cuid())
+  title       String
+  subtitle    String?
+  format      String   // "SINGLE" or "SERIALIZED"
+  status      String   // "DRAFT" or "PUBLISHED"
+  authorId    String
+  author      User     @relation("StoryAuthor", fields: [authorId], references: [id])
+  
+  genres      Genre[]  @relation("StoryToGenre")
+  tags        Tag[]    @relation("StoryToTag")
+  chapters    Chapter[]
+  coAuthors   CoAuthorInvite[]
+  reviews     Review[]
+  comments    Comment[]
+  readHistory ReadHistory[]
+  
+  viewCount   Int      @default(0)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Chapter {
+  id          String   @id @default(cuid())
+  storyId     String
+  story       Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  title       String?
+  content     String
+  order       Int
+  status      String   // "DRAFT" or "PUBLISHED"
+  comments    Comment[]
+  viewCount   Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CoAuthorInvite {
+  id          String   @id @default(cuid())
+  storyId     String
+  story       Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status      String   @default("PENDING") // "PENDING", "ACCEPTED", "DECLINED"
+  
+  createdAt   DateTime @default(now())
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  storyId   String
+  story     Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int      // 1 to 5
+  text      String?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  storyId   String?
+  story     Story?   @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  chapterId String?
+  chapter   Chapter? @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  text      String
+  
+  createdAt DateTime @default(now())
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  followerId  String
+  follower    User     @relation("UserFollowing", fields: [followerId], references: [id], onDelete: Cascade)
+  followingId String
+  following   User     @relation("UserFollowers", fields: [followingId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime @default(now())
+  
+  @@unique([followerId, followingId])
+}
+
+model SiteFeedback {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category  String   // "Bug", "Suggestion", "General"
+  message   String
+  rating    Int?     // Optional 1-5 rating
+  
+  createdAt DateTime @default(now())
+}
+
+model ReadHistory {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  storyId   String
+  story     Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  
+  updatedAt DateTime @default(now()) @updatedAt
+  
+  @@unique([userId, storyId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // "FOLLOW", "INVITE", "REVIEW", "COMMENT", "MILESTONE", "RANK"
+  message   String
+  link      String?
+  isRead    Boolean  @default(false)
+  
+  createdAt DateTime @default(now())
+}

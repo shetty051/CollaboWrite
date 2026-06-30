@@ -1,0 +1,233 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.greeting {
+  font-size: 2.5rem;
+  color: var(--color-accent-maroon);
+}
+
+.roleTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-accent-peach);
+  color: var(--color-accent-maroon);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  color: var(--color-text-primary);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 12px;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.videoCard {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.storyLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.storyCard {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.storyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-peach);
+}
+
+.storyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.storyTitle {
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.storyAuthorWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.storyAuthor {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.storyMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.storyGenre {
+  background-color: var(--color-bg-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.storyRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.starIcon {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.spotlightGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.spotlightCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-accent-peach);
+}
+
+.spotlightHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-accent-maroon);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.spotlightHeader h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.spotlightContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.spotlightTitle {
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.spotlightAuthor, .spotlightStat {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.spotlightMeta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.spotlightLink {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--color-accent-maroon);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.spotlightLink:hover {
+  text-decoration: underline;
+}
+
+.emptySpotlight {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 2rem;
+  }
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  .videoGrid,
+  .storyGrid,
+  .spotlightGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

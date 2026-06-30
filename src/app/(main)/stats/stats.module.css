@@ -1,0 +1,157 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.storySelect {
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.metricCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.metricIconWrap {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-accent-maroon);
+  padding: 12px;
+  border-radius: var(--radius-full);
+  display: flex;
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 4px 0;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.sentimentPositive {
+  color: #059669; /* green */
+}
+
+.sentimentMixed {
+  color: #d97706; /* amber */
+}
+
+.sentimentNegative {
+  color: #dc2626; /* red */
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.chartTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  margin: 0 0 24px 0;
+}
+
+.titleIcon {
+  color: var(--color-text-secondary);
+}
+
+.chartWrapper {
+  height: 300px;
+  width: 100%;
+}
+
+.chartEmpty {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-secondary);
+}
+
+.loading {
+  text-align: center;
+  padding: 64px;
+  color: var(--color-text-secondary);
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 24px;
+  gap: 16px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  margin-top: 32px;
+}
+
+.emptyIcon {
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+}
+
+.emptyState h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.emptyState p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}

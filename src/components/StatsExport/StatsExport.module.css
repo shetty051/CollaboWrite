@@ -1,0 +1,88 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.exportBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  z-index: 50;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--color-border);
+}
+
+.dropdownHeader {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dropdownTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.dropdownDesc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionBtn {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.optionBtn:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-accent-maroon);
+}
+
+.optionIcon {
+  color: var(--color-accent-maroon);
+  margin-top: 2px;
+}
+
+.optionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.optionText strong {
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+}
+
+.optionText span {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
