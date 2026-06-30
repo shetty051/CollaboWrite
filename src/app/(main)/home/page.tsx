@@ -44,7 +44,7 @@ export default async function HomePage() {
 
   const formattedStories = latestStories.map(story => {
     const avgRating = story.reviews.length > 0 
-      ? (story.reviews.reduce((sum, r) => sum + r.rating, 0) / story.reviews.length).toFixed(1)
+      ? parseFloat((story.reviews.reduce((sum, r) => sum + r.rating, 0) / story.reviews.length).toFixed(1))
       : 0;
     return {
       id: story.id,
