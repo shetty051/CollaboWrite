@@ -164,7 +164,7 @@ export default function StatsPage() {
                     outerRadius={80}
                     paddingAngle={5}
                     dataKey="value"
-                    label={({name, percent}) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    label={({name, percent}) => `${name} ${((percent || 0) * 100).toFixed(0)}%`}
                     labelLine={false}
                   >
                     {demographics.genres.map((entry: any, index: number) => (
@@ -193,7 +193,7 @@ export default function StatsPage() {
                     cy="50%"
                     outerRadius={80}
                     dataKey="value"
-                    label={({name, percent}) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    label={({name, percent}) => `${name} ${((percent || 0) * 100).toFixed(0)}%`}
                     labelLine={false}
                   >
                     {demographics.countries.map((entry: any, index: number) => (

@@ -37,11 +37,11 @@ export default function ProfilePage() {
     if (res.user) {
       setData(res);
       setFormData({
-        fullName: res.user.profile.fullName,
-        username: res.user.profile.username,
-        age: res.user.profile.age,
-        country: res.user.profile.country,
-        genreIds: res.user.profile.genres.map((g: any) => g.id)
+        fullName: res.user.profile?.fullName || "",
+        username: res.user.profile?.username || "",
+        age: res.user.profile?.age || 0,
+        country: res.user.profile?.country || "",
+        genreIds: res.user.profile?.genres?.map((g: any) => g.id) || []
       });
     }
     setLoading(false);
