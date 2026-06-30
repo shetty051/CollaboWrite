@@ -89,37 +89,42 @@ function AuthForm() {
     setError("");
     setLoading(true);
 
-    if (isLogin) {
-      const res = await signIn("credentials", {
-        redirect: false,
-        email,
-        password,
-      });
-
-      if (res?.error) {
-        setError("Invalid email or password");
-        setLoading(false);
-      } else {
-        await saveRecentAccount();
-        router.push("/home"); // Middleware will catch and redirect if onboarding is incomplete
-        router.refresh();
-      }
-    } else {
-      const res = await signUpAction(new FormData(e.target as HTMLFormElement));
-      if (res.error) {
-        setError(res.error);
-        setLoading(false);
-      } else {
-        // Automatically sign in after sign up
-        await signIn("credentials", {
+    try {
+      if (isLogin) {
+        const res = await signIn("credentials", {
           redirect: false,
           email,
           password,
         });
-        await saveRecentAccount();
-        router.push("/onboarding/role");
-        router.refresh();
+
+        if (res?.error) {
+          setError("Invalid email or password");
+          setLoading(false);
+        } else {
+          await saveRecentAccount();
+          router.push("/home");
+          router.refresh();
+        }
+      } else {
+        const res = await signUpAction(new FormData(e.target as HTMLFormElement));
+        if (res.error) {
+          setError(res.error);
+          setLoading(false);
+        } else {
+          await signIn("credentials", {
+            redirect: false,
+            email,
+            password,
+          });
+          await saveRecentAccount();
+          router.push("/onboarding/role");
+          router.refresh();
+        }
       }
+    } catch (err) {
+      console.error(err);
+      setError("A server error occurred. Please try again.");
+      setLoading(false);
     }
   };
 
